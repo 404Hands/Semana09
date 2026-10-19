@@ -1,0 +1,23 @@
+<h3>componete dos</h3>
+<form novalidate (submit)="guardar($event)">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre"  [formField]="personaFormulario.nombre">
+        @if(personaFormulario.nombre().touched()){ 
+            @for(error of personaFormulario.nombre().errors(); track error){
+                <p style="color: red;">{{error.message}}</p>
+            }
+        }
+    </div>
+
+    <div>
+        <label for="edad">Edad</label>
+        <input type="number" id="edad" [formField]="personaFormulario.edad">
+        @if(personaFormulario.edad().touched()){   
+            @for(error of personaFormulario.edad().errors(); track error){
+                <p style="color: red;">{{error.message}}</p>
+            }
+        }
+    </div>
+    <button type="submit">Guardar</button>
+</form>
